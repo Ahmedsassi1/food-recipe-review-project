@@ -1,0 +1,12 @@
+.nav{
+    color: black;
+    display: flex;
+justify-content:flex-start;
+width: max-content;
+
+}
+.nav-item{
+    display: flex;
+    margin-left: 50px;
+    justify-content: center;
+}

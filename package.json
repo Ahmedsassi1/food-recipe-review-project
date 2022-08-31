@@ -1,7 +1,7 @@
 {
-  "name": "rbktn12-mvp-starter",
+  "name": "food-recipe-reviews",
   "version": "1.0.0",
-  "description": "You have 36 hours to produce something compelling using the skills you've honed over the past five weeks.",
+  "description": "food app",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server/index.js",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/RBK-Tunisia/rbktn12-mvp-starter.git"
   },
-  "author": "",
+  "author": "Sassi Ahmed",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/RBK-Tunisia/rbktn12-mvp-starter/issues"
