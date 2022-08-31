@@ -53,7 +53,7 @@ var addOne = (req, res) => {
 };
 
 var updateOne = (req, res) => {
-    plate.updateOne(req.body).then((done) => {
+    plate.findOneAndUpdate(req.body[0],req.body[1]).then((done) => {
         res.send(done);
     })
         .catch((error) => {

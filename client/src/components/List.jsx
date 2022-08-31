@@ -3,11 +3,10 @@ import ListItem from "./ListItem.jsx";
 
 const List = (props) => (
   <div>
-    <h4> List Component </h4>
-    There are {props.items.length} items.
-    {props.items.map((item, index) => (
+    There are {props.Plates.length} items.
+    {props.Plates.map((item, index) => (
       <div key={index}>
-        <ListItem item={item} />
+        <ListItem plate={item} />
       </div>
     ))}
   </div>
