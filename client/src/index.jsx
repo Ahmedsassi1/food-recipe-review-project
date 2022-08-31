@@ -3,24 +3,28 @@ import ReactDOM from 'react-dom';
 import List from './components/List.jsx';
 import Axios from 'axios';
 import AddPlate from './components/add.jsx';
-import axios from 'axios';
-
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       Menu: [],
-      addPlate:{},
       editSheet:[],
     }
   }
 
   componentDidMount() {
-    Axios.get("/all").then((done) => { this.setState({ Menu: done.data }); console.log(done.data) }).catch((err) => console.log(err))
+    Axios.get("/all").then((done) => this.setState({ Menu: done.data })).catch((err) => console.log(err))
   }
 
-  addPlate(){
+  makePlate(a,b,c,d){
+    this.setState({name:a,
+      ImageUrl:b,
+      ingredients:c,
+      howTo:d,
+    })
+  }
+  addPlateDB(){
     Axios.post("/add")
   }
 
@@ -36,7 +40,7 @@ class App extends React.Component {
 
       <h1 className='Menu' >The Menu</h1>
       <List Plates={this.state.Menu} />
-      <AddPlate Plates={this.state.Menu} />
+      <AddPlate makePlate={this.makePlate} />
     </div>)
   }
 }

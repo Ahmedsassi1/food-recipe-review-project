@@ -33,9 +33,27 @@
 
   body{
     margin: 0;
+    /* background-image: url('https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/302042235_765004078102769_692035548444848052_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=94CWhsyQAgEAX8qipxz&_nc_ht=scontent.ftun4-2.fna&oh=03_AVIX2dP9pyCB8FiAfq2gNMU00w_Nsvrt1721NmkuWyLqpg&oe=6336A653');
+    background-size:cover; */
   }
   .Menu{
     margin-top:60px;
     margin-bottom: 20px;
     margin-left: 20px;
   }
+.element{
+    display: flex;
+}  
+.item{
+    margin-left: 50px;
+}
+#delete{
+    position: relative;
+    left: 150px;
+    border: 3px solid #73AD21; 
+}
+#Edit{
+  position: relative;
+  left: 20px;
+  border: 3px solid #73AD21; 
+}

@@ -2,11 +2,10 @@ import React from "react";
 import ListItem from "./ListItem.jsx";
 
 const List = (props) => (
-  <div>
-    There are {props.Plates.length} items.
+  <div className="element">
     {props.Plates.map((item, index) => (
-      <div key={index}>
-        <ListItem plate={item} />
+      <div key={index} className="item">
+        <ListItem plate={item} /><button id="delete">X</button><button  id="Edit">E</button>
       </div>
     ))}
   </div>
