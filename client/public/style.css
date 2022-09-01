@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Orbitron:wght@500&family=Silkscreen&display=swap');
+
 .nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #111;
+    background-color:beige;
     position: fixed;
     top: 0;
     width: 100%;
@@ -15,12 +17,15 @@
   
   .navB button {
     display: block;
-    color: red;
+    color: green;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    background-color: #111;
+    padding: 10px 14px;
+    text-decoration:overline;
+    background-color:beige;
     width: 150px;
+    font-family: 'Dancing Script', cursive;
+    font-size: x-large;
+    border: none;
   }
   
   .navB button:hover:not(.active) {
@@ -32,11 +37,13 @@
   }
 
   body{
+    font-family: 'Dancing Script', cursive;
     margin: 0;
     /* background-image: url('https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/302042235_765004078102769_692035548444848052_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=94CWhsyQAgEAX8qipxz&_nc_ht=scontent.ftun4-2.fna&oh=03_AVIX2dP9pyCB8FiAfq2gNMU00w_Nsvrt1721NmkuWyLqpg&oe=6336A653');
     background-size:cover; */
-    background-image: url('https://www.nicepng.com/png/detail/214-2148603_you-eat-ready-to-eat-food-icon.png');
+    background-image: url('image.jpg');
     background-size:cover;
+    color: darkgreen;
   }
   .Menu{
     margin-top:60px;
@@ -54,7 +61,7 @@
 }
 #dislike{
     left: 150px;
-    border: 3px solid #73AD21; 
+    border: 3px solid red; 
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -64,7 +71,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  margin-left: 60px;
+  margin-left: 158px;
 }
 img{
   border-radius: 50%;
@@ -74,4 +81,22 @@ img{
 }
 .divhidden{
   display: none;
+}
+.putAdmin{
+  display: inline-block;
+  float: right;
+}
+.adminNameBox{
+  margin-top: 5px;
+}
+h2{
+  text-align: center;
+}
+h1{
+  text-align: center;
+  font-weight: 600;
+  font-size: 80px;
+}
+#imageSelector{
+  border-radius: 40%;
 }

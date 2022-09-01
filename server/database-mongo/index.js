@@ -6,4 +6,6 @@ mongoose.connect(mongoUri, { useUnifiedTopology: true, useNewUrlParser: true }, 
 });
 const db = mongoose.connection;
 
+mongoose.set('useFindAndModify', false);
+
 module.exports = db

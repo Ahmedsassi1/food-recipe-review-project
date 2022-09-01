@@ -32,7 +32,7 @@ class App extends React.Component {
   }
 
   EditPlate(element){
-    Axios.post("/http://localhost:3000/updateOne",element).then((result)=>{console.log('done')}).catch((err)=>console.log(err))
+    Axios.put("/updateOne",element).then((result)=>{console.log('done')}).catch((err)=>console.log(err))
   }
 
 
@@ -41,7 +41,7 @@ class App extends React.Component {
 
   renderView() {
     const { view } = this.state;
-    if (view === "List") { 
+    if (view === "List") { {this.componentDidMount()}
       return <List Plates={this.state.Menu}/>
     } else if
       (view === 'AddPlate') {
