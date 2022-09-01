@@ -3,10 +3,9 @@ const db = require("./index.js");
 
 const itemSchema = new mongoose.Schema({
   name : String,
-  Id : Number,
   ImageUrl : String,
-  FavRate : Number,
-  BadRate :Number,
+  FavRate : { type : Number , default : 0},
+  BadRate :{ type : Number , default : 0},
   ingredients:Array,
   howTo:String,
 });

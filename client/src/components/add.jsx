@@ -5,7 +5,7 @@ class AddPlate extends React.Component {
         super(props),
             this.state = {
                 name:'',
-                imageUrl: '',
+                ImageUrl: '',
                 ingredients: '',
                 howTo: ''
             }
@@ -23,11 +23,11 @@ class AddPlate extends React.Component {
     render = (props) => (
         <div><h1>
             <input name="name" placeholder="Name ..." onChange={()=>{this.handlechange(event);console.log(this.state)}}></input>
-            <input name="imageUrl" placeholder="ImageUrl" onChange={()=>this.handlechange(event)}></input>
+            <input name="ImageUrl" placeholder="ImageUrl" onChange={()=>this.handlechange(event)}></input>
             <input name="ingredients" placeholder="ingredients" onChange={()=>this.handlechange(event)}></input>
             <input name="howTo" placeholder="How To" onChange={()=>this.handlechange(event)}></input>
         </h1>
-            <button >confirm </button>
+            <button onClick={()=>{this.props.addPlateDB(this.state);console.log(this.props)}}>confirm </button>
         </div>
     );
 }

@@ -1,16 +1,16 @@
 import React from "react";
-import ListItem from "./ListItem.jsx";
+import Adminlist from "./AdminItem.jsx";
 
 
 
-const List = (props) => (
+const Admin = (props) => (
   <div className="element">
     {props.Plates.map((item, index) => (
       <div key={index} className="item">
-        <ListItem plate={item} changeView={props.changeView}/>
+        <Adminlist plate={item} changeView={props.changeView}/>
       </div>
     ))}
   </div>
 );
 
-export default List;
+export default Admin;
