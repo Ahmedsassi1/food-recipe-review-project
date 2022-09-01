@@ -15,6 +15,7 @@ class App extends React.Component {
     }
     this.addPlateDB = this.addPlateDB.bind(this);
     this.changeView =this.changeView.bind(this);
+    this.EditPlate=this.EditPlate.bind(this);
   }
 
   changeView(option) {
@@ -30,20 +31,25 @@ class App extends React.Component {
     Axios.post("/addOne",element).then((result)=>{console.log('done')}).catch((err)=>console.log(err))
   }
 
+  EditPlate(element){
+    Axios.post("/http://localhost:3000/updateOne",element).then((result)=>{console.log('done')}).catch((err)=>console.log(err))
+  }
+
 
 
 
 
   renderView() {
     const { view } = this.state;
-    if (view === "List") { this.componentDidMount()
+    if (view === "List") { 
       return <List Plates={this.state.Menu}/>
     } else if
       (view === 'AddPlate') {
       return <AddPlate addPlateDB={this.addPlateDB} />;
     }
     else if (view === 'Admin') {
-      return <Admin  Plates={this.state.Menu}/>
+      return <Admin  EditP={this.EditPlate} Plates={this.state.Menu}
+                     />
     }
   }
 
@@ -56,7 +62,6 @@ class App extends React.Component {
         <li className='navB'><button>Info</button></li>
       </ul>
 
-      <h1 className='Menu' >The Menu</h1>
       <div>
       {this.renderView()}</div>
       

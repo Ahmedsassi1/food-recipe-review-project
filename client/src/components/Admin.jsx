@@ -4,10 +4,10 @@ import Adminlist from "./AdminItem.jsx";
 
 
 const Admin = (props) => (
-  <div className="element">
+  <div className="element">{console.log(props)}
     {props.Plates.map((item, index) => (
       <div key={index} className="item">
-        <Adminlist plate={item} changeView={props.changeView}/>
+        <Adminlist plate={item} EditP={props.EditP}/>
       </div>
     ))}
   </div>

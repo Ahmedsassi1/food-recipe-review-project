@@ -20,8 +20,8 @@ class AddPlate extends React.Component {
         });
     }
 
-    render = (props) => (
-        <div><h1>
+    render = () => (
+        <div><br></br><br></br><h1>
             <input name="name" placeholder="Name ..." onChange={()=>{this.handlechange(event);console.log(this.state)}}></input>
             <input name="ImageUrl" placeholder="ImageUrl" onChange={()=>this.handlechange(event)}></input>
             <input name="ingredients" placeholder="ingredients" onChange={()=>this.handlechange(event)}></input>
