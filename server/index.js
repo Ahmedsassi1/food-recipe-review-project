@@ -16,7 +16,7 @@ app.use(express.static(__dirname + "/../client/public"));
 app.use("/api/items", itemRoutes);
 
 app.get("/all",itemRoutes);
-app.get("one",itemRoutes);
+app.get("/one",itemRoutes);
 app.post("/addOne",itemRoutes);
 app.put("/updateOne",itemRoutes);
 app.delete("/deleteOne",itemRoutes);

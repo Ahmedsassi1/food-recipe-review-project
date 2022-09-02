@@ -137,3 +137,11 @@ h1{
   display:block;
   text-align: center;
 }
+.addButton:hover{
+  color:#04AA6D;
+  transform: scale(1.1);
+}
+.addButton:active{
+  background-color: #73AD21;
+  color: black;
+}

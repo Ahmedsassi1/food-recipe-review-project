@@ -64,10 +64,10 @@ class Adminlist extends React.Component {
                 <input className='putAdmin' name="howTo" onChange={() => { this.handlechange(event); console.log(this.state) }} ></input>
                 </div>
                 <div className='addButtonholder'>
-                <button className='addButton' onClick={() => {this.updateHandler();this.props.EditP(this.state.update);this.props.changeView('Admin') }}>
+                <button className='addButton' onClick={() => {this.updateHandler();this.props.EditP(this.state.update);this.props.changeView('Admin');alert("modified") }}>
                     Edit</button>
 
-                <button className='addButton' onClick={()=> { this.Delete();this.props.changeView('Admin')}}>
+                <button className='addButton' onClick={()=> { this.Delete();this.props.changeView('Admin');alert("deleted")}}>
                     Delete</button></div>
             </div>
         </div>
