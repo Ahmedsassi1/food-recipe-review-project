@@ -62,6 +62,7 @@ var updateOne = (req, res) => {
 };
 
 var deleteOne = (req, res) => {
+    console.log(req.body)
     plate.deleteOne(req.body).then((done) => {
         res.send(done);
     })

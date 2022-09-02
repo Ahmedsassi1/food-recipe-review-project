@@ -16,6 +16,7 @@ class App extends React.Component {
     this.addPlateDB = this.addPlateDB.bind(this);
     this.changeView =this.changeView.bind(this);
     this.EditPlate=this.EditPlate.bind(this);
+    this.DeletePlate=this.DeletePlate.bind(this);
   }
 
   changeView(option) {
@@ -35,6 +36,10 @@ class App extends React.Component {
     Axios.put("/updateOne",element).then((result)=>{console.log('done')}).catch((err)=>console.log(err))
   }
 
+  DeletePlate(element){
+    Axios.delete("/deleteOne",element).then((result)=>{console.log(result)}).catch((err)=>console.log(err))
+  }
+
 
 
 
@@ -48,8 +53,10 @@ class App extends React.Component {
       return <AddPlate addPlateDB={this.addPlateDB} />;
     }
     else if (view === 'Admin') {
-      return <Admin  EditP={this.EditPlate} Plates={this.state.Menu}
-                     />
+      return <Admin  EditP={this.EditPlate} 
+      Plates={this.state.Menu} 
+      DeletePlate={this.DeletePlate}
+      changeView={this.changeView}/>
     }
   }
 
@@ -59,7 +66,6 @@ class App extends React.Component {
         <li className='navB'><button onClick={()=>this.changeView('List')}>Menu</button></li>
         <li className='navB'><button onClick={()=>{this.changeView('AddPlate');console.log(this.state.view)}}>Add</button></li>
         <li className='navB'><button onClick={()=>this.changeView('Admin')}>Admin</button></li>
-        <li className='navB'><button>Info</button></li>
       </ul>
 
       <div>

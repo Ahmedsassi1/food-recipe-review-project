@@ -20,7 +20,7 @@
     color: green;
     text-align: center;
     padding: 10px 14px;
-    text-decoration:overline;
+    text-decoration:underline;
     background-color:beige;
     width: 150px;
     font-family: 'Dancing Script', cursive;
@@ -83,8 +83,15 @@ img{
   display: none;
 }
 .putAdmin{
-  display: inline-block;
-  float: right;
+  background-color: beige;
+  color: rgb(207, 127, 66);
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  width:80%;
+  border: 2px solid;
+  border-radius: 10%;
 }
 .adminNameBox{
   margin-top: 5px;
@@ -99,4 +106,34 @@ h1{
 }
 #imageSelector{
   border-radius: 40%;
+}
+#imageSelector:hover {
+  transform: scale(1.1);
+}
+
+.addInput{
+  background-color: beige;
+  color: rgb(207, 127, 66);
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  width:80%;
+  border: 2px solid;
+  border-radius: 10%;
+}
+.addButton{
+  background-color: beige;
+  color: rgb(207, 127, 66);
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  width:10%;
+  border: 2px solid;
+  border-radius: 10%;
+  text-align: center;
+}
+.addButtonholder{
+  display:block;
+  text-align: center;
 }

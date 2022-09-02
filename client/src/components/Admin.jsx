@@ -7,7 +7,10 @@ const Admin = (props) => (
   <div className="element">{console.log(props)}
     {props.Plates.map((item, index) => (
       <div key={index} className="item">
-        <Adminlist plate={item} EditP={props.EditP}/>
+        <Adminlist plate={item} 
+        EditP={props.EditP} 
+        DeletePlate={props.DeletePlate}
+        changeView={props.changeView}/>
       </div>
     ))}
   </div>

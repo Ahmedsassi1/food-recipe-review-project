@@ -35,6 +35,14 @@ class Adminlist extends React.Component {
 
     }
 
+    Delete(){
+        let plate ={
+            name:this.props.plate.name
+        }
+        console.log(plate)
+        this.props.DeletePlate(plate)
+    }
+
 
     render = () => (
         <div >
@@ -55,9 +63,12 @@ class Adminlist extends React.Component {
                 <div> howTo    </div>
                 <input className='putAdmin' name="howTo" onChange={() => { this.handlechange(event); console.log(this.state) }} ></input>
                 </div>
-                <button id="edit" onClick={() => { this.updateHandler(); this.props.EditP(this.state.update) }}>Edit</button>
+                <div className='addButtonholder'>
+                <button className='addButton' onClick={() => {this.updateHandler();this.props.EditP(this.state.update);this.props.changeView('Admin') }}>
+                    Edit</button>
 
-                <button id="delete">Delete</button>
+                <button className='addButton' onClick={()=> { this.Delete();this.props.changeView('Admin')}}>
+                    Delete</button></div>
             </div>
         </div>
     );
