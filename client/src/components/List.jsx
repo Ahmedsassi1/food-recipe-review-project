@@ -1,18 +1,20 @@
 import React from "react";
 import ListItem from "./ListItem.jsx";
+import ListItemDetails from "./OneItemDetails.jsx";
 
 
 
 const List = (props) => (
   <div>
-  <h1 className='Menu' >The Menu </h1>
-  <div className="element">
-    {props.Plates.map((item, index) => (
-      <div key={index} className="item">
-        <ListItem plate={item} changeView={props.changeView}/>
-      </div>
-    ))}
-  </div></div>
+    <h1 className='Menu' >The Menu </h1>
+    <div className="element">
+      {props.Plates.map((item, index) => (
+        <div key={index} className="item">
+          <ListItem plate={item} changeView={props.changeView} getElementDetails={props.getElementDetails}/>
+        </div>
+      ))}
+    </div>
+  </div>
 );
 
 export default List;

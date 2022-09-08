@@ -2,13 +2,15 @@ import React from 'react';
 
 
 const ListItemDetails = (props) => (
-  <div >
-    <h2></h2>
+  <div width>
+    <br/>
+    <br/>
+    <h2>{props.plate.name}</h2>
     <div>
-      <div id='imageSelector'><img width="263"
-        height="250" /></div>
+      <div><img width="500" src={props.plate.ImageUrl} 
+        height="500" /></div>
     </div>
-   <div>Ingredients :</div><div>HowTo :
+   <div>Ingredients : {props.plate.ingredients}</div><div>HowTo :{props.plate.howTo}
 </div>
   </div>
 )

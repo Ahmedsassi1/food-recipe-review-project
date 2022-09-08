@@ -14,11 +14,13 @@ class App extends React.Component {
       view: 'List',
       Menu: [],
       onePlate: {},
+      details:{}
     }
     this.addPlateDB = this.addPlateDB.bind(this);
     this.changeView = this.changeView.bind(this);
     this.EditPlate = this.EditPlate.bind(this);
     this.DeletePlate = this.DeletePlate.bind(this);
+    this.getElementDetails=this.getElementDetails.bind(this);
   }
 
   changeView(option) {
@@ -26,6 +28,11 @@ class App extends React.Component {
       view: option
     });
   }
+
+getElementDetails(plate){
+  this.setState({details:plate})
+}
+
   componentDidMount() {
     Axios.get("/all").then((done) => this.setState({ Menu: done.data })).catch((err) => console.log(err))
   }
@@ -55,7 +62,8 @@ class App extends React.Component {
     if (view === "List") {
       { this.componentDidMount() }
       return <List Plates={this.state.Menu}
-        changeView={this.changeView} />
+        changeView={this.changeView}
+        getElementDetails={this.getElementDetails} />
     } else if
       (view === 'AddPlate') {
       return <AddPlate addPlateDB={this.addPlateDB} />;
@@ -67,7 +75,8 @@ class App extends React.Component {
       />
     }
     else if (view === 'oneDetails') {
-      return <ListItemDetails />
+      console.log(this.state.details)
+      return <ListItemDetails plate={this.state.details}/>
     }
   }
 
