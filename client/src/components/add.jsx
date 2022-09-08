@@ -1,35 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-class AddPlate extends React.Component {
-    constructor(props) {
-        super(props),
-            this.state = {
-                name: '',
-                ImageUrl: '',
-                ingredients: '',
-                howTo: ''
-            }
+function AddPlate(props) {
+    const [name, setName] = useState('');
+    const [ImageUrl, setUrl] = useState('');
+    const [ingredients, setIngredients] = useState('');
+    const [howTo, setHowTo] = useState('');
+    let newrecipe = { name: name, ImageUrl: ImageUrl, ingredients: ingredients, howTo: howTo }
 
-    }
-
-    handlechange(event) {
-        let value = event.target.value;
-        let name = event.target.name;
-        this.setState({
-            [name]: value
-        });
-    }
-
-    render = () => (
+    return (
         <div>
             <h1>
-                <input className='addInput' name="name" placeholder="Name ..." onChange={() => { this.handlechange(event); console.log(this.state) }}></input>
-                <input className='addInput' name="ImageUrl" placeholder="ImageUrl..." onChange={() => this.handlechange(event)}></input>
-                <input className='addInput' name="ingredients" placeholder="ingredients..." onChange={() => this.handlechange(event)}></input>
-                <input className='addInput' name="howTo" placeholder="How To..." onChange={() => this.handlechange(event)}></input>
+                <input className='addInput' placeholder="Name ..." onChange={(e) => {setName(e.target.value)}}></input>
+                <input className='addInput' placeholder="ImageUrl..." onChange={(e) => {setUrl(e.target.value)}}></input>
+                <input className='addInput' placeholder="ingredients..." onChange={(e) => {setIngredients(e.target.value)}}></input>
+                <input className='addInput' placeholder="How To..." onChange={(e) => {setHowTo(e.target.value)}}></input>
             </h1>
             <div className='addButtonholder'>
-                <button className='addButton' onClick={() => { this.props.addPlateDB(this.state); alert("added") }}>confirm </button>
+                <button className='addButton' onClick={() => { props.addPlateDB(newrecipe); alert("added") }}>confirm </button>
             </div>
         </div>
     );
