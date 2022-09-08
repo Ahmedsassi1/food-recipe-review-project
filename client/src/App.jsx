@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import List from './components/List.jsx';
 import Axios from 'axios';
 import AddPlate from './components/add.jsx';
@@ -6,50 +6,42 @@ import Admin from './components/Admin.jsx';
 import ListItemDetails from './components/OneItemDetails.jsx';
 
 
-class App extends React.Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      view: 'List',
-      Menu: [],
-      onePlate: {},
-      details: {}
-    }
-    this.addPlateDB = this.addPlateDB.bind(this);
-    this.changeView = this.changeView.bind(this);
-    this.EditPlate = this.EditPlate.bind(this);
-    this.DeletePlate = this.DeletePlate.bind(this);
-    this.getElementDetails = this.getElementDetails.bind(this);
+function App(props) {
+  const [view, setView] = useState('List');
+  const [Menu, setMenu] = useState([]);
+  const [onePlate, setOnePlate] = useState({})
+  const [details, setDetails] = useState({})
+
+
+  const changeView = (option) => {
+    setView(
+      option
+    );
   }
 
-  changeView(option) {
-    this.setState({
-      view: option
-    });
+  const getElementDetails = (plate) => {
+    setDetails(
+      plate
+    )
   }
 
-  getElementDetails(plate) {
-    this.setState({ details: plate })
+  const componentDidMount = () => {
+    Axios.get("/all").then((done) => setMenu(done.data)).catch((err) => console.log(err))
   }
 
-  componentDidMount() {
-    Axios.get("/all").then((done) => this.setState({ Menu: done.data })).catch((err) => console.log(err))
+  const getOne = () => {
+    Axios.get("/one", element).then((done) => setMenu(done.data)).catch((err) => console.log(err))
   }
 
-  getOne() {
-    Axios.get("/one", element).then((done) => this.setState({ Menu: done.data })).catch((err) => console.log(err))
-  }
-
-  addPlateDB(element) {
+  const addPlateDB = (element) => {
     Axios.post("/addOne", element).then((result) => { console.log('done') }).catch((err) => console.log(err))
   }
 
-  EditPlate(element) {
+  const EditPlate = (element) => {
     Axios.put("/updateOne", element).then((result) => { console.log('done') }).catch((err) => console.log(err))
   }
 
-  DeletePlate(element) {
+  const DeletePlate = (element) => {
     Axios.delete("/deleteOne", element).then((result) => { console.log(result) }).catch((err) => console.log(err))
   }
 
@@ -57,43 +49,40 @@ class App extends React.Component {
 
 
 
-  renderView() {
-    const { view } = this.state;
+  const renderView = () => {
     if (view === "List") {
-      { this.componentDidMount() }
-      return <List Plates={this.state.Menu}
-        changeView={this.changeView}
-        getElementDetails={this.getElementDetails} />
+      { componentDidMount() }
+      return <List Plates={Menu}
+        changeView={changeView}
+        getElementDetails={getElementDetails} />
     } else if
       (view === 'AddPlate') {
-      return <AddPlate addPlateDB={this.addPlateDB} />;
+      return <AddPlate addPlateDB={addPlateDB} />;
     }
     else if (view === 'Admin') {
-      return <Admin EditP={this.EditPlate}
-        Plates={this.state.Menu}
-        DeletePlate={this.DeletePlate}
+      return <Admin EditP={EditPlate}
+        Plates={Menu}
+        DeletePlate={DeletePlate}
       />
     }
     else if (view === 'oneDetails') {
-      console.log(this.state.details)
-      return <ListItemDetails plate={this.state.details} />
+      console.log(details)
+      return <ListItemDetails plate={details} />
     }
   }
 
-  render() {
-    return (<div>
-      <ul className='nav'>
-        <li className='navB'><button onClick={() => this.changeView('List')}>Menu</button></li>
-        <li className='navB'><button onClick={() => { this.changeView('AddPlate'); console.log(this.state.view) }}>Add</button></li>
-        <li className='navB'><button onClick={() => this.changeView('Admin')}>Admin</button></li>
-      </ul>
+  return (<div>
+    <ul className='nav'>
+      <li className='navB'><button onClick={() => changeView('List')}>Menu</button></li>
+      <li className='navB'><button onClick={() => changeView('AddPlate')}>Add</button></li>
+      <li className='navB'><button onClick={() => changeView('Admin')}>Admin</button></li>
+    </ul>
 
-      <div>
-        {this.renderView()}</div>
+    <div>
+      {renderView()}</div>
 
-    </div>)
-  }
+  </div>)
 }
 
 
-export default App ;
+export default App;
