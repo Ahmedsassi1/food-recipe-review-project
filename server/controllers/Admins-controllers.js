@@ -1,6 +1,6 @@
 var user = require('../database-mongo/users.models.js');
 
-var selectAll = function (req, res) {
+var selectAllu = function (req, res) {
     user.find({})
         .then((items) => {
             res.status(200).send(items);
@@ -10,7 +10,7 @@ var selectAll = function (req, res) {
         });
 };
 
-var selectOne = (req, res) => {
+var selectOneu = (req, res) => {
     user.findOne(req.body).then((done) => {
         res.status(200).send(done);
     })
@@ -19,7 +19,7 @@ var selectOne = (req, res) => {
         });
 };
 
-var addOne = (req, res) => {
+var addOneu = (req, res) => {
     user.create(req.body).then((done) => {
         res.status(201).send(done);
     })
@@ -28,7 +28,7 @@ var addOne = (req, res) => {
         });
 };
 
-var updateOne = (req, res) => {
+var updateOneu = (req, res) => {
     user.findOneAndUpdate(req.body[0],req.body[1]).then((done) => {
         res.send(done);
     })
@@ -37,7 +37,7 @@ var updateOne = (req, res) => {
         });
 };
 
-var deleteOne = (req, res) => {
+var deleteOneu = (req, res) => {
     user.findOneAndDelete(req.body).then((done) => {
         res.send(done);
     })
@@ -46,4 +46,4 @@ var deleteOne = (req, res) => {
         });
 };
 
-module.exports = { selectAll,selectOne,addOne,deleteOne};
+module.exports = { selectAllu,selectOneu,addOneu,deleteOneu,updateOneu};

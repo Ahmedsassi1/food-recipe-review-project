@@ -1,11 +1,11 @@
 const routeruser = require('express').Router();
-const itemControllerUser = require("../controllers/item-controller");
+const itemControllerUser = require("../controllers/Admins-controllers");
  
 
-routeruser.get("/all", itemControllerUser.selectAll);
-routeruser.get("/one", itemControllerUser.selectOne);
-routeruser.post("/addOne", itemControllerUser.addOne);
-routeruser.put("/updateOne", itemControllerUser.updateOne);
-routeruser.delete("/deleteOne", itemControllerUser.deleteOne);
+routeruser.get("/allu", itemControllerUser.selectAllu);
+routeruser.get("/oneu", itemControllerUser.selectOneu);
+routeruser.post("/addOneu", itemControllerUser.addOneu);
+routeruser.put("/updateOneu", itemControllerUser.updateOneu);
+routeruser.delete("/deleteOneu", itemControllerUser.deleteOneu);
 
 module.exports = routeruser;

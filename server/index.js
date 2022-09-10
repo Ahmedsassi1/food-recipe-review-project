@@ -3,7 +3,7 @@ const itemRoutes = require('./routes/item.routes')
 // TODO: Update this
 // UNCOMMENT THE DATABASE YOU'D LIKE TO USE
 // var items = require('./database-mysql');
-var plate = require('./database-mongo');
+const routeruser = require("./routes/users.routes");
 
 const app = express();
 const PORT = process.env.PORT || 3000
@@ -20,6 +20,13 @@ app.get("/one",itemRoutes);
 app.post("/addOne",itemRoutes);
 app.put("/updateOne",itemRoutes);
 app.delete("/deleteOne",itemRoutes);
+
+app.get("/allu",routeruser);
+app.get("/oneu",routeruser);
+app.post("/addOneu",routeruser);
+app.put("/updateOneu",routeruser);
+app.delete("/deleteOneu",routeruser);
+
 
 app.listen(PORT, function () {
   console.log("listening on port 3000!");
