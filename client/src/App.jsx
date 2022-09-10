@@ -42,11 +42,9 @@ function App(props) {
   }
 
   const DeletePlate = (element) => {
-    Axios.delete("/deleteOne", element).then((result) => { console.log(result) }).catch((err) => console.log(err))
+    console.log(element)
+    Axios.delete("/deleteOne",{data:element} ).then((result) => { console.log(result) }).catch((err) => console.log(err))
   }
-
-
-
 
 
   const renderView = () => {
@@ -79,9 +77,7 @@ function App(props) {
     <ul className='nav'>
       <li className='navB'><button onClick={() => changeView('List')}>Menu</button></li>
       <li className='navB'><button onClick={() => changeView('AddPlate')}>Add</button></li>
-      <li className='navB'><button onClick={() => changeView('Admin')}>Admin</button></li>
-      <li className='navB'><input></input></li>
-      <li className='navB'><input></input></li>
+      <li className='navB'><button  id='AdminButton' onClick={() => changeView('Admin')}>Admin</button></li>
       <li className='navSignli' ><button className='navSign'>Enter</button></li>
       <li className='navSignli'><button className='navSign'>SignUp</button></li>
     </ul>

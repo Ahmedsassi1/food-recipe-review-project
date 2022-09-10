@@ -17,13 +17,6 @@ function Adminlist(props) {
         } return preparation
     }
 
-    const Delete = () => {
-        var deletePreparation = {
-            name: props.plate.name
-        }
-        props.DeletePlate(deletePreparation)
-    }
-
     return (
         <div >
             <h2>{props.plate.name}</h2>
@@ -47,7 +40,7 @@ function Adminlist(props) {
                         onClick={() => { () => props.EditP(updateHandler()); props.changeView('Admin'); alert("modified") }}>
                         Edit
                     </button>
-                    <button className='addButton' onClick={() => { Delete(); props.changeView('Admin'); alert("deleted") }}>
+                    <button className='addButton' onClick={() => {  props.DeletePlate({name:props.plate.name}); props.changeView('Admin'); alert("deleted") }}>
                         Delete</button></div>
             </div>
         </div>

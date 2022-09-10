@@ -62,14 +62,14 @@ var updateOne = (req, res) => {
 };
 
 var deleteOne = (req, res) => {
-    console.log(req.body)
-    plate.findOneAndDelete(req.body).then((done) => {
+    console.log(req)
+      plate.findOneAndDelete(req.body).then((done) => {
         res.send(done);
     })
         .catch((error) => {
             res.send(error);
         });
-};
+ };
 
 
 module.exports = { selectAll,selectOne,addOne,updateOne,deleteOne};
