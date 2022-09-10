@@ -7,7 +7,6 @@ function Adminlist(props) {
     const [howTo, setHowTo] = useState('');
     let updaterecipe = { name: name, ImageUrl: ImageUrl, ingredients: ingredients, howTo: howTo }
 
-
     const updateHandler = () => {
         var preparation = [];
         preparation.push({ name: props.plate.name });
@@ -19,12 +18,11 @@ function Adminlist(props) {
     }
 
     const Delete = () => {
-        let plate = {
+        var deletePreparation = {
             name: props.plate.name
         }
-        props.DeletePlate(plate)
+        props.DeletePlate(deletePreparation)
     }
-
 
     return (
         <div >
@@ -34,7 +32,6 @@ function Adminlist(props) {
                     height="100" />
                 <div>ingredients :{props.plate.ingredients}</div>
                 <div>howTo :{props.plate.howTo}</div>
-
                 <div>
                     <div> Name     </div>
                     <input className='putAdmin' name="name" onChange={(e) => { setName(e.target.value) }}></input>
@@ -50,7 +47,6 @@ function Adminlist(props) {
                         onClick={() => { () => props.EditP(updateHandler()); props.changeView('Admin'); alert("modified") }}>
                         Edit
                     </button>
-
                     <button className='addButton' onClick={() => { Delete(); props.changeView('Admin'); alert("deleted") }}>
                         Delete</button></div>
             </div>

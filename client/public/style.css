@@ -71,7 +71,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  margin-left: 158px;
+
 }
 img{
   border-radius: 50%;
@@ -144,4 +144,32 @@ h1{
 .addButton:active{
   background-color: #73AD21;
   color: black;
+}
+.navSign{
+
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  padding: 0 16px;
+  background-color: darkgreen;
+  border-radius: 0.25rem;
+  border: 1px solid darkgreen;
+  color: #fff;
+  font-size: 13px;
+  line-height: 22px;
+  font-weight: 100px;
+  text-align: center;
+  width:90px; 
+}
+.navSignli{
+  display: flex;
+  align-items: center;
+  margin-left: 1430px;
+}
+#FavR{
+  margin-left: 135px;
+}
+.Rate{
+  color: black;
+  font-size: 15px;
 }

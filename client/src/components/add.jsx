@@ -5,8 +5,8 @@ function AddPlate(props) {
     const [ImageUrl, setUrl] = useState('');
     const [ingredients, setIngredients] = useState('');
     const [howTo, setHowTo] = useState('');
-    let newrecipe = { name: name, ImageUrl: ImageUrl, ingredients: ingredients, howTo: howTo }
-
+    let newrecipe = { name: name, ImageUrl: ImageUrl, ingredients: ingredients, howTo: howTo };
+    
     return (
         <div>
             <h1>

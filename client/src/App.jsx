@@ -57,15 +57,19 @@ function App(props) {
         getElementDetails={getElementDetails} />
     } else if
       (view === 'AddPlate') {
+        { componentDidMount() }
       return <AddPlate addPlateDB={addPlateDB} />;
     }
     else if (view === 'Admin') {
+      { componentDidMount() }
       return <Admin EditP={EditPlate}
         Plates={Menu}
         DeletePlate={DeletePlate}
+        changeView={changeView}
       />
     }
     else if (view === 'oneDetails') {
+      { componentDidMount() }
       console.log(details)
       return <ListItemDetails plate={details} />
     }
@@ -76,6 +80,10 @@ function App(props) {
       <li className='navB'><button onClick={() => changeView('List')}>Menu</button></li>
       <li className='navB'><button onClick={() => changeView('AddPlate')}>Add</button></li>
       <li className='navB'><button onClick={() => changeView('Admin')}>Admin</button></li>
+      <li className='navB'><input></input></li>
+      <li className='navB'><input></input></li>
+      <li className='navSignli' ><button className='navSign'>Enter</button></li>
+      <li className='navSignli'><button className='navSign'>SignUp</button></li>
     </ul>
 
     <div>
