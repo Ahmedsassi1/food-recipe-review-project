@@ -19,6 +19,8 @@ function Adminlist(props) {
 
     return (
         <div >
+            <br/>
+            <br/>
             <h2>{props.plate.name}</h2>
             <div>
                 <img src={props.plate.ImageUrl} width="100"

@@ -12,7 +12,7 @@ function App(props) {
   const [view, setView] = useState('List');
   const [Menu, setMenu] = useState([]);
   const [onePlate, setOnePlate] = useState({})
-  const [details, setDetails] = useState({})
+  const [details, setDetails] = useState({});
 
 
   const changeView = (option) => {
@@ -89,7 +89,7 @@ function App(props) {
     <ul className='nav'>
       <li className='navB'><button onClick={() => changeView('List')}>Menu</button></li>
       <li className='navB'><button onClick={() => changeView('AddPlate')}>Add</button></li>
-      <li hidden  className='navB'><button  id='AdminButton' onClick={() => changeView('Admin')}>Admin</button></li>
+      <li className='navB'><button  id='AdminButton' onClick={() => changeView('Admin')}>Admin</button></li>
       <li className='navSignli' ><button className='navSign' onClick={() => changeView('signIn')}>Enter</button></li>
       <li className='navSignli'><button className='navSign'onClick={() => changeView('signUP')}>SignUp</button></li>
     </ul>

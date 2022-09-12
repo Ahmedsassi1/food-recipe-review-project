@@ -1,49 +1,78 @@
+
+const {verifyPassword}=require ('../Token/hashing.js');
+const {NewToken} =require('../Token/TokenCreation.js')
 var user = require('../database-mongo/users.models.js');
+const{hashPassword} =require( '../Token/hashing.js');
 
-var selectAllu = function (req, res) {
-    user.find({})
-        .then((items) => {
-            res.status(200).send(items);
+
+
+    const getAllUsers= function(req, res)  {
+
+        selectAllu((err, results) => {
+            if (err) { console.log(err) }
+            res.json(results)
         })
-        .catch((error) => {
-            res.status(500).send(error);
-        });
-};
 
-var selectOneu = (req, res) => {
-    user.findOne(req.body).then((done) => {
-        res.status(200).send(done);
-    })
-        .catch((error) => {
-            res.status(500).send(error);
-        });
-};
+    }
+     const createNewUser = async function(req, res) {
+        
+        user.find({username:req.body.username}, (err, result) => {
+            if (err) {
+                console.log(err)
+            }
+            else if (result.length>0) {
+                (res.status(400).send("User already exists"))
+            }
+            else {
+                var newbody ={
+                    username : req.body.username,
+                     password: hashPassword ( req.body.password,10)
+                }
+                try {
+                   
+                    user.create(newbody, (err, results) => {
+                        if (err) {
+                            console.log(err)
+                            res.sendStatus(409);
+                        }
+                        else {
+                        res.status(201).send("user created")
+                    }
+                    })
+                }
+                catch (err) {
+                    console.log(err)
+                    res.status(409).send();
+                }
+            }
+        })
 
-var addOneu = (req, res) => {
-    user.create(req.body).then((done) => {
-        res.status(201).send(done);
-    })
-        .catch((error) => {
-            res.send(error);
-        });
-};
+    }
+    const loggingIn= async function(req, res){
+        user.find({username:req.body.username}, async (err, result) => {
 
-var updateOneu = (req, res) => {
-    user.findOneAndUpdate(req.body[0],req.body[1]).then((done) => {
-        res.send(done);
-    })
-        .catch((error) => {
-            res.send(error);
-        });
-};
+            if (err) { console.log(err) }
+            else if (!result.length>0) {
+                res.send('Wrong username')
+            }
+            else {
+                try {
+                    const match = verifyPassword( req.body.password,result[0].password)
+                    if (match) {
+                        res.cookie('token',NewToken(req.body))
 
-var deleteOneu = (req, res) => {
-    user.findOneAndDelete(req.body).then((done) => {
-        res.send(done);
-    })
-        .catch((error) => {
-            res.send(error);
-        });
-};
+                        res.status(200).json({ result: "welcome back "})
+                    }
+                    else {
+                        res.send("not allowed")
+                    }
+                }
+                catch (err) {
+                    console.log(err)
+                }
+            }
+        })
+    }
 
-module.exports = { selectAllu,selectOneu,addOneu,deleteOneu,updateOneu};
+
+module.exports = { getAllUsers,loggingIn,createNewUser};

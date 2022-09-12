@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 function SignUP() {
     const [UserName, setUserName] = useState('');
     const [Password, setPassword] = useState('');
+
+    const Signup =()=> axios.post('/addOneu', { username: UserName, password: Password })
+        .then((response) => console.log(response))
+        .catch((err) => console.log(err))
 
     return (
 
@@ -16,10 +21,10 @@ function SignUP() {
             <br />
             <div id="UserNamelabel">PassWord</div>
             <br />
-            <input onChange={(e) => { setPassword(hashing(Password));console.log(Password) }}></input>
+            <input type='password' onChange={(e) => { setPassword(Password) }}></input>
             <br />
             <br />
-            <button className="navSign">Confirm</button>
+            <button className="navSign" onClick={()=>{Signup()}}>Confirm</button>
         </div>
     )
 }

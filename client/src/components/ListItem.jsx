@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
-const ListItem = (props) => (
+function ListItem (props) {
+  const [like,setLike]= useState(props.plate.FavRate);
+  const [dislike,setDislike]=useState(props.plate.BadRate);
+  
+  return (
   <div >
+    <br/>
+    <br/>
+
     <h2>{props.plate.name}</h2>
     <div>
       <button id='imageSelector' onClick={() => {
@@ -13,12 +20,12 @@ const ListItem = (props) => (
           height="250" /></button>
 
     </div>
-    <button id="dislike">dislike</button>
-    <a className='Rate'>{props.plate.BadRate}</a>
-    <a className='Rate' id='FavR'>{props.plate.FavRate}</a>
-    <button id="like">like</button>
+    <button hidden id="dislike" onClick={()=>setLike(like+1)}>dislike</button>
+    <a  hidden className='Rate'>{props.plate.BadRate}</a>
+    <a  hidden className='Rate' id='FavR'>{props.plate.FavRate}</a>
+    <button hidden id="like"onClick={()=>setDislike(dislike+1)} >like</button>
     
   </div>
-)
+)}
 
 export default ListItem;

@@ -22,10 +22,8 @@ app.put("/updateOne",itemRoutes);
 app.delete("/deleteOne",itemRoutes);
 
 app.get("/allu",routeruser);
-app.get("/oneu",routeruser);
+app.post("/oneu",routeruser);
 app.post("/addOneu",routeruser);
-app.put("/updateOneu",routeruser);
-app.delete("/deleteOneu",routeruser);
 
 
 app.listen(PORT, function () {
