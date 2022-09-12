@@ -4,6 +4,8 @@ import Axios from 'axios';
 import AddPlate from './components/add.jsx';
 import Admin from './components/Admin.jsx';
 import ListItemDetails from './components/OneItemDetails.jsx';
+import SingIn from './components/signin.jsx';
+import SignUP from './components/SignUp.jsx';
 
 
 function App(props) {
@@ -71,15 +73,25 @@ function App(props) {
       console.log(details)
       return <ListItemDetails plate={details} />
     }
+    else if
+    (view === 'signIn') {
+      { componentDidMount() }
+    return <SingIn  changeView={changeView}/>;
+  }
+  else if
+  (view === 'signUP') {
+    { componentDidMount() }
+  return <SignUP  changeView={changeView} />;
+}
   }
 
   return (<div>
     <ul className='nav'>
       <li className='navB'><button onClick={() => changeView('List')}>Menu</button></li>
       <li className='navB'><button onClick={() => changeView('AddPlate')}>Add</button></li>
-      <li className='navB'><button  id='AdminButton' onClick={() => changeView('Admin')}>Admin</button></li>
-      <li className='navSignli' ><button className='navSign'>Enter</button></li>
-      <li className='navSignli'><button className='navSign'>SignUp</button></li>
+      <li hidden  className='navB'><button  id='AdminButton' onClick={() => changeView('Admin')}>Admin</button></li>
+      <li className='navSignli' ><button className='navSign' onClick={() => changeView('signIn')}>Enter</button></li>
+      <li className='navSignli'><button className='navSign'onClick={() => changeView('signUP')}>SignUp</button></li>
     </ul>
 
     <div>

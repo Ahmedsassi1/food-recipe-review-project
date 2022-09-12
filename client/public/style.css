@@ -87,6 +87,7 @@ body {
   height: 60px;
   border-radius: 50%;
 
+
 }
 
 img {
@@ -212,4 +213,11 @@ h1 {
 .navSign:hover {
   background-color: #fff;
   color: darkgreen;
+}
+.SIgnPage{
+  text-align: center;
+  padding: 10% 10% 10% 10%;
+}
+#UserNamelabel{
+  font-size: larger;
 }

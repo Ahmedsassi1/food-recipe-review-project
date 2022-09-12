@@ -2,6 +2,7 @@
 // var db = require("../database-mysql");
 var plate = require('../database-mongo/Item.model.js');
 
+const bcrypt = require('bcrypt')
 // UNCOMMENT IF USING MYSQL WITH CALLBACKS
 // var selectAll = function (req, res) {
 //   db.query("SELECT * FROM items", (err, items, fields) => {
