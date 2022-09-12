@@ -3,6 +3,7 @@ const {verifyPassword}=require ('../Token/hashing.js');
 const {NewToken} =require('../Token/TokenCreation.js')
 var user = require('../database-mongo/users.models.js');
 const{hashPassword} =require( '../Token/hashing.js');
+const { Message } = require('semantic-ui-react');
 
 
 
@@ -21,7 +22,7 @@ const{hashPassword} =require( '../Token/hashing.js');
                 console.log(err)
             }
             else if (result.length>0) {
-                (res.status(400).send("User already exists"))
+                (res.status(400).send({Message:"User already exists"}))
             }
             else {
                 var newbody ={
@@ -36,7 +37,7 @@ const{hashPassword} =require( '../Token/hashing.js');
                             res.sendStatus(409);
                         }
                         else {
-                        res.status(201).send("user created")
+                        res.status(201).send({Message:"user created"})
                     }
                     })
                 }
@@ -53,7 +54,7 @@ const{hashPassword} =require( '../Token/hashing.js');
 
             if (err) { console.log(err) }
             else if (!result.length>0) {
-                res.send('Wrong username')
+                res.send({Message:'Wrong username'})
             }
             else {
                 try {
@@ -61,10 +62,10 @@ const{hashPassword} =require( '../Token/hashing.js');
                     if (match) {
                         res.cookie('token',NewToken(req.body))
 
-                        res.status(200).json({ result: "welcome back "})
+                        res.status(200).json({ Message: "welcome back "})
                     }
                     else {
-                        res.send("not allowed")
+                        res.send({Message:"not allowed"})
                     }
                 }
                 catch (err) {

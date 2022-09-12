@@ -6,9 +6,10 @@ import axios from "axios";
 function SingIn() {
     const [UserName, setUserName] = useState('');
     const [Password, setPassword] = useState('');
+    const [message,setMessage]=useState('')
   
     const Signin = () => axios.post('/oneu', { username: UserName, password: Password })
-    .then((response) => console.log(response))
+    .then((response) => setMessage(response.data.Message))
     .catch((err) => console.log(err))
 
 
@@ -26,7 +27,8 @@ function SingIn() {
             <input type='password' onChange={(e) => { setPassword(e.target.value)}}></input>
             <br />
             <br/>
-            // <button className="navSign" onClick={()=>{Signin()}} >Confirm</button>
+             <button className="navSign" onClick={()=>{Signin()}} >Confirm</button>
+<div className="message">{message}</div>
         </div>
     )
 }
